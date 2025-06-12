@@ -1,23 +1,22 @@
 import os
-import re
 import sys
 import platform
 import subprocess
-import glob
 import setuptools
 import pathlib
 
 from pkg_resources import Distribution, get_distribution
 
 from setuptools import setup, Extension
-from setuptools import Extension
-from setuptools.command.build_ext import build_ext, copy_file
+from setuptools.command.build_ext import build_ext
+
 
 from distutils.version import LooseVersion
 
 from distutils import log
-
+from distutils.file_util import copy_file 
 MIN_SETUPTOOLS_VERSION = "31.0.0"
+
 assert (LooseVersion(setuptools.__version__) >= LooseVersion(MIN_SETUPTOOLS_VERSION)), "pyJadx requires a setuptools version '{}' or higher (pip install setuptools --upgrade)".format(MIN_SETUPTOOLS_VERSION)
 
 CURRENT_DIR = pathlib.Path(__file__).parent
